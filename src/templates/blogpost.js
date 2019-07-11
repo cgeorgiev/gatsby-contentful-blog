@@ -2,12 +2,10 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageTransition from "gatsby-plugin-page-transitions"
 
 const BlogPost = ({ data }) => {
   const { title, body, image, tags } = data.contentfulBlogPost
   return (
-    <PageTransition>
       <Layout>
         <SEO title={title} />
         <div className="blogpost">
@@ -25,7 +23,6 @@ const BlogPost = ({ data }) => {
           <Link to="/">Back to Home</Link>
         </div>
       </Layout>
-    </PageTransition>
   )
 }
 export default BlogPost

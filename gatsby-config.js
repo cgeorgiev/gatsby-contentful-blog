@@ -33,14 +33,7 @@ module.exports = {
         spaceId: `xd8z8keid4x6`,
         accessToken: `DZNdIyr821RTbIdaXNxFZX6vF7vRNJajb0Fg5ExMDi0`,
       },
-    },
-    `gatsby-plugin-page-transitions`,
-    {
-      resolve: "gatsby-plugin-page-transitions",
-      options: {
-        transitionTime: 500,
-      },
-    },
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

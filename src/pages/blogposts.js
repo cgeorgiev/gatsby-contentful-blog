@@ -2,12 +2,10 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageTransition from "gatsby-plugin-page-transitions"
 
 const BlogPosts = ({ data }) => {
   const blogPosts = data.allContentfulBlogPost.edges
   return (
-    <PageTransition>
       <Layout>
         <SEO title="Blog posts" />
         <h1>{"Here's a list of all blogposts!"}</h1>
@@ -21,7 +19,6 @@ const BlogPosts = ({ data }) => {
           <Link to="/">Go back to the homepage</Link>
         </div>
       </Layout>
-    </PageTransition>
   )
 }
 export default BlogPosts
