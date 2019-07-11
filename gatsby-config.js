@@ -34,6 +34,7 @@ module.exports = {
         accessToken: `DZNdIyr821RTbIdaXNxFZX6vF7vRNJajb0Fg5ExMDi0`,
       },
     },
+    `gatsby-plugin-page-transitions`,
     {
       resolve: "gatsby-plugin-page-transitions",
       options: {
