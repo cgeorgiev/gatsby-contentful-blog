@@ -14,6 +14,29 @@ import Footer from "./footer"
 import "../css/style.css"
 import "../css/responsive.css"
 
+class MainScripts extends React.Component {
+  componentDidMount() {
+    window.addEventListener("scroll", this.toggleBodyClass);
+    this.toggleBodyClass();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.toggleBodyClass);
+  }
+
+  toggleBodyClass = () => {
+    if (window.scrollY > 0) {
+      document.body.classList.add("fixed");
+    } else {
+      document.body.classList.remove("fixed");
+    }
+  };
+
+  render() {
+    return null;
+  }
+}
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -31,6 +54,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <MainScripts />
       <Header
         siteTitle={data.site.siteMetadata.title}
         menuLinks={data.site.siteMetadata.menuLinks}
