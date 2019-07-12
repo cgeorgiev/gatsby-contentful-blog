@@ -6,9 +6,10 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 
 const IndexPage = () => (
-    <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <div className="home">
+  <Layout>
+    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <div className="body-content padding-content">
+      <div className="wrapper">
         <h1>Hello There</h1>
         <p>Welcome my awesome blog</p>
         <div>
@@ -21,8 +22,9 @@ const IndexPage = () => (
             <Image />
           </div>
         </div>
-        <Link to="/blogposts/">View all posts</Link>
+        <Link to="/blog/">View all posts</Link>
       </div>
-    </Layout>
+    </div>
+  </Layout>
 )
 export default IndexPage

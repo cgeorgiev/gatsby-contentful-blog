@@ -6,11 +6,18 @@ import SEO from "../components/seo"
 const BlogPost = ({ data }) => {
   const { title, body, image, tags } = data.contentfulBlogPost
   return (
-      <Layout>
-        <SEO title={title} />
-        <div className="blogpost">
+    <Layout>
+      <SEO title={title} />
+      <div className="body-content padding-content">
+        <div className="wrapper">
           <h1>{title}</h1>
-          <img alt={title} src={image.file.url} />
+          {image ? (
+            <picture>
+              <source srcSet={image.fluid.srcSetWebp} type="image/webp" />
+              <source srcSet={image.fluid.srcSet} type="image/jpeg" />
+              <img src={image.fluid.src} alt={title} />
+            </picture>
+          ) : null}
           <div className="tags">
             {tags.map(tag => (
               <span className="tag" key={tag}>
@@ -19,10 +26,11 @@ const BlogPost = ({ data }) => {
             ))}
           </div>
           <p className="body-text">{body.body}</p>
-          <Link to="/blogposts">View more posts</Link>
+          <Link to="/blog/">View more posts</Link>
           <Link to="/">Back to Home</Link>
         </div>
-      </Layout>
+      </div>
+    </Layout>
   )
 }
 export default BlogPost
@@ -35,8 +43,11 @@ export const pageQuery = graphql`
         body
       }
       image {
-        file {
-          url
+        fluid(maxWidth: 2000) {
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
         }
       }
       tags
