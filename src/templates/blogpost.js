@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Img from "gatsby-image"
 
 const BlogPost = ({ data }) => {
   const { title, body, image, tags } = data.contentfulBlogPost
@@ -11,13 +12,7 @@ const BlogPost = ({ data }) => {
       <div className="body-content padding-content">
         <div className="wrapper">
           <h1>{title}</h1>
-          {image ? (
-            <picture>
-              <source srcSet={image.fluid.srcSetWebp} type="image/webp" />
-              <source srcSet={image.fluid.srcSet} type="image/jpeg" />
-              <img src={image.fluid.src} alt={title} />
-            </picture>
-          ) : null}
+          {image ? <Img sizes={image.fluid} /> : null}
           <div className="tags">
             {tags.map(tag => (
               <span className="tag" key={tag}>
@@ -44,10 +39,7 @@ export const pageQuery = graphql`
       }
       image {
         fluid(maxWidth: 2000) {
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
+          ...GatsbyContentfulFluid_withWebp
         }
       }
       tags
