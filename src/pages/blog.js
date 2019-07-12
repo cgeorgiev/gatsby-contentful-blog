@@ -42,7 +42,7 @@ const BlogPosts = ({ data }) => {
 export default BlogPosts
 export const query = graphql`
   query BlogPostsPageQuery {
-    allContentfulBlogPost(limit: 1000) {
+    allContentfulBlogPost(limit: 1000, sort: {fields: createdAt, order: DESC}) {
       edges {
         node {
           id
